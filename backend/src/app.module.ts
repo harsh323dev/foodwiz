@@ -5,8 +5,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { RestaurantsModule } from './restaurants/restaurants.module';
+import { MenuItemsModule } from './menu-items/menu-items.module';
 import { User } from './users/entities/user.entity';
 import { Restaurant } from './restaurants/entities/restaurant.entity';
+import { MenuItem } from './menu-items/entities/menu-item.entity';
 
 @Module({
   imports: [
@@ -14,11 +16,12 @@ import { Restaurant } from './restaurants/entities/restaurant.entity';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DATABASE_URL,
-      entities: [User, Restaurant],
+      entities: [User, Restaurant, MenuItem],
       synchronize: true,
     }),
     AuthModule,
     RestaurantsModule,
+    MenuItemsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

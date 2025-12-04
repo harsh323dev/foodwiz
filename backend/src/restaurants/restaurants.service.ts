@@ -5,6 +5,7 @@ import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { Restaurant } from './entities/restaurant.entity';
 import { Region } from '../users/entities/user.entity';
+import { MenuItem } from '../menu-items/entities/menu-item.entity';
 
 @Injectable()
 export class RestaurantsService {
@@ -13,7 +14,7 @@ export class RestaurantsService {
     private restaurantRepo: Repository<Restaurant>,
   ) {}
 
-  // called from AppModule.onModuleInit
+  // called from AppModule.onModuleInit (optional now)
   async seed() {
     const count = await this.restaurantRepo.count();
     if (count > 0) return;
