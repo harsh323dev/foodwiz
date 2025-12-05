@@ -36,4 +36,4 @@ const seedUsers = async () => {
   await dataSource.destroy();
 };
 
-seedUsers().catch((err) => console.error('Seed failed:', err));
+seedUsers().catch((err) => console.error('Seed failed:!!!', err));

@@ -31,6 +31,9 @@ export class User {
   @Column({ type: 'enum', enum: Region })
   region: Region;
 
+  @Column({ nullable: true })
+  paymentMethod?: string;
+
   @CreateDateColumn()
   createdAt: Date;
 }
